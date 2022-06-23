@@ -1,0 +1,57 @@
+{% extends 'app/settings/settings_base.html' %}
+{% load static %}
+{% block contenido %}
+<link rel="stylesheet" href="{% static 'css/stail2.css' %}">
+<div class="configuracion__menuCtr">
+    <div class="configuracion__datosPersonales">
+        <h2>Datos personales</h2>
+        <form>
+            <div class="form-group edit space">
+                <div class="form-outline form-white mb-4 ">
+                    <label class="form-label fw-bold fs-4">Nombre de usuario</label>
+                    <input class="form-control form-control-lg" type="text" placeholder="Tu nombre de usuario">
+                </div>
+                <div class="form-outline form-white mb-4">
+                    <label class="form-label fw-bold fs-4">Correo electronico</label>
+                    <input class="form-control form-control-lg" type="email" placeholder="Tu correo electronico">
+                </div>
+                <div class="form-outline form-white mb-4">
+                    <label class="form-label fw-bold fs-4">Contraseña</label>
+                    <input class="form-control form-control-lg" type="password" placeholder="Tu contraseña">
+                </div>
+                <div class="form-outline form-white mb-4">
+                    <label class="form-label fw-bold fs-4">Confirmar contraseña</label>
+                    <input class="form-control form-control-lg" type="password" placeholder="Confirmar tu contraseña">
+                    <input class="btn btn-outline-light btn-lg px-5 configBtn" type="submit" value="Guardar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="configuracion__menuDer">
+    <div class="configuracion__datosBancarios">
+        <h2>Ingresa una cuenta asociada a tu correo para futuras devoluciones de dinero</h2>
+        <form>
+            <div class="form-group edit space">
+                <div class="form-outline form-white mb-4">
+                    <label class="form-label fw-bold fs-4">Banco</label>
+                    <select class="form-select fs-5">
+                        <option active>Seleccionar banco</select>
+                    </select>
+                </div>
+                <div class="form-outline form-white mb-4">
+                    <label class="form-label fw-bold fs-4">Tipo de cuenta</label>
+                    <select class="form-select fs-5">
+                        <option active>Seleccionar tipo de cuenta</select>
+                    </select>
+                </div>
+                <div class="form-outline form-white mb-4">
+                    <label class="form-label fw-bold fs-4">Número de cuenta</label>
+                    <input class="form-control form-control-lg" type="number" placeholder="Número de cuenta">
+                </div>
+                <input class="btn btn-outline-light btn-lg px-5 configBtn" type="submit" value="Guardar">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

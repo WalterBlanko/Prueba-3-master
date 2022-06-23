@@ -1,0 +1,175 @@
+/* Pago section */
+.pago__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.pago__size {
+    height: 58rem;
+}
+
+.pago__width {
+    width: 45rem;
+}
+
+/* Configuraciones */
+
+/** Welcome **/
+.welcome {
+    margin: 8rem auto;
+}
+
+.welcome h2 {
+    font-size: 10rem;
+}
+
+/** Configuración - Barra superior**/
+.configuracion__saludoUser{
+    background-color: rgb(33,37,41);
+    position: absolute;
+    width: 120rem;
+    height: 5rem;
+    overflow: hidden;
+    position: relative;
+    margin: 3rem auto;
+    border-radius: 2rem;
+    padding-left: 5rem;
+    padding-top: .8rem;
+    color: aliceblue;
+}
+
+/** Configuración - Menu izquierdo **/
+li {
+    list-style: none;
+}
+
+.configuracion__links {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1.5rem;
+    
+}
+
+.configuracion__linksSpace {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.configuracion__linksSpace p{
+    padding-left: 3rem;
+}
+
+.configuracion__linksSpace:hover {
+    background-color: rgb(61, 61, 61);
+}
+
+.configuracion__contentIzq {
+    margin-top: 2rem;
+}
+
+.configuracion__contentIzq ul{
+    padding-left: 0rem;
+}
+
+.configuracion__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin-top: 1rem;
+}
+
+.configuracion__espacio {
+    margin-left: 10rem;
+    margin-right: 20rem;
+}
+
+.configuracion__menuIzq {
+    background-color: rgb(33,37,41);
+    position: absolute;
+    width: 20rem;
+    height: 50rem;
+    overflow: hidden;
+    position: relative;
+    margin-left: 15rem;
+    border-radius: 2rem;
+    color: aliceblue;
+}
+
+/** Configuración - Menú derecho / Centro **/
+.configuracion__menuCtr, .configuracion__menuDer {
+    background-color: rgb(33,37,41);
+    position: absolute;
+    width: 35rem;
+    height: 50rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 2rem;
+    color: aliceblue;
+}
+
+.configuracion__datosPersonales, .configuracion__datosBancarios {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.space {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.configBtn {
+    margin-top: 2rem;
+}
+
+/** Menu Historial **/
+.configuracion__menuHist {
+    background-color: rgb(33,37,41);
+    position: absolute;
+    width: 78rem;
+    height: 50rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 2rem;
+    color: aliceblue;
+}
+
+.configuracion__flexHist {
+    display: flex;
+    flex-direction: row;
+}
+
+.histLetras {
+    padding-left: 5rem;
+}
+.configuracion__marginHist {
+    margin-left: 6rem;
+}
+
+/** Direcciones menu **/
+.configuracion__btnsDire {
+    display: flex;
+    justify-content: space-around;
+}
+
+.configuracion__menuDir {
+    background-color: rgb(33,37,41);
+    position: absolute;
+    width: 78rem;
+    height: 35rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 2rem;
+    color: aliceblue;
+}
+
+.configuracion__menuBtn_2 {
+    background-color: rgb(33,37,41);
+    position: absolute;
+    width: 78rem;
+    height: 6rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 2rem;
+    color: aliceblue;
+    margin-top: 1rem;
+}

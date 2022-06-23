@@ -2,9 +2,15 @@
 {% load static %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+    <div class="welcome">
+        <h2>Bienvenido, @{{ user.username }}!</h2>
+    </div>
+    {% else %}
     <div class="welcome">
         <h2>Bienvenido!</h2>
     </div>
+    {% endif %}
     <hr>
     <section class="suscribirse">
         <img src="{% static 'img/fondo.jpg' %}" alt="Foto">

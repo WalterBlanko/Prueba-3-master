@@ -1,0 +1,25 @@
+{% extends 'app/settings/settings_base.html' %}
+{% load static %}
+{% block content %}
+<div class="configuracion__menuHist">
+    <h2 class="fw-bold mb-2 text-uppercase" style="margin-top: 1rem;">Compra online</h2>
+    <hr>
+    <div class="configuracion__marginHist">
+        <label class="form-label fw-bold fs-4 histLetras">Fecha de compra: X</label>
+        <div class="configuracion__flexHist">
+            <div class="form-outline form-white mb-4">
+                <label class="form-label fw-bold fs-4 histLetras">Pedido n°X</label>
+            </div>
+            <div class="form-outline form-white mb-4">
+                <label class="form-label fw-bold fs-4 histLetras">Comprado el X de X.</label>
+            </div>
+            <div class="form-outline form-white mb-4">
+                <label class="form-label fw-bold fs-4 histLetras">Entregado el X de X</label>
+            </div>
+            <div class="form-outline form-white mb-4">
+                <label class="form-label fw-bold fs-4 histLetras">Estado: X</label>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

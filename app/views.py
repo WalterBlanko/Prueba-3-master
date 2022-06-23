@@ -1,3 +1,4 @@
+from pprint import pp
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import CustomUserCreationForm, ContactoForm, ProductoForm
@@ -27,7 +28,7 @@ def contacto(request):
         'form': ContactoForm()
     }
     if request.method == 'POST':
-        formulario = ContactoForm(data=request.POST)
+        formulario = ContactoForm(data = request.POST)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = 'Contacto guardado'
@@ -102,7 +103,7 @@ def modificar_producto(request, id):
 
 @permission_required('app.delete_producto')
 def eliminar_producto(request, id):
-    producto = get_object_or_404(Producto, id=id)
+    producto = get_object_or_404(Producto, id = id)
     producto.delete()
     messages.success(request, 'Eliminado correctamente')
     return redirect(to = "listar_productos") 
@@ -110,3 +111,30 @@ def eliminar_producto(request, id):
 
 def clima(request):
     return render(request, 'app/clima.html')
+
+def pagar(request):
+    return render(request, 'app/pagar.html')
+
+@login_required
+def settings(request):
+    return render(request, 'app/settings/settings_personales.html')
+
+@login_required
+def historial(request):
+    return render(request, 'app/settings/settings_historial.html')
+
+@login_required
+def direcciones(request):
+    return render(request, 'app/settings/settings_direcciones.html')
+
+@login_required
+def cupones(request):
+    return render(request, 'app/settings/settings_cupones.html')
+
+@login_required
+def metodos_de_pago(request):
+    return render(request, 'app/settings/settings_medPagos.html')
+
+@login_required
+def despacho(request):
+    return render(request, 'app/settings/settings_despacho.html')

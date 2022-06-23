@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/stail2.css' %}">
+<section class="vh-10">
+    <div class="container py-5 h-10">
+        <div class="pago__grid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="card bg-dark text-white pago__size" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h2 class="fw-bold mb-2 text-uppercase">Carrito de compras</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white pago__width" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <h2 class="fw-bold mb-2 text-uppercase">Pago</h2>
+                                <p class="text-white-50 mb-5">Metodos de pago</p>
+                                <form id="registro">
+                                    <div class="form-group edit">
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label fw-bold fs-4">Precio final:</label>
+                                            <span class="form-label fw-bold fs-4">$</span>
+                                            <span class="form-label fw-bold fs-4" id="pago">0</span>
+                                        </div>
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label fw-bold fs-4">Cupon de descuento:</label>
+                                            <input type="text" class="form-control form-control-lg"/>
+                                        </div>
+                                        <div class="form-outline form-white mb-4">
+                                            <label for="InputAddress" class="form-label fw-bold fs-4">Metodo de pago: </label>
+                                            <select class="form-select fs-5">
+                                                <option active>Metodo de pago</option>
+                                                <option value="1">Tranferencia bancaria</option>
+                                                <option value="2">Tarjeta de credito</option>
+                                                <option value="3">Tarjeta de debito</option>
+                                            </select>
+                                        </div>
+                                        <label class="form-label fw-bold fs-4"> Comentarios:</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; resize: none;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="reset" class="btn btn-outline-light btn-lg px-5 tamanno" id="btnCancelar" value="Cancelar">
+                                        <input type="submit" class="btn btn-outline-light btn-lg px-5 tamanno" id="btnPagar" value="Pagar">
+                                    </div>
+                                </form>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

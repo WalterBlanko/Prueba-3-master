@@ -61,10 +61,10 @@
                     {% endif %}
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="{% url 'logout' %}">Cerrar sesion</a>
+                        <a href="{% url 'settings' %}">Configuraciones</a>
                     </li>
                     <li>
-                        <a href="#">@{{ user.username}}</a>
+                        <a href="{% url 'logout' %}">Cerrar sesion</a>
                     </li>
                     {% else %}
                     <li>

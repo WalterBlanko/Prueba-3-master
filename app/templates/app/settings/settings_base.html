@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/stail2.css' %}">
+<div class="configuracion__saludoUser">
+    <div class="saludo__letras">
+        <h1>holi, @{{ user.username}}</h1>
+    </div>
+</div>
+<div class="configuracion__grid">
+    <div class="configuracion__menuIzq">
+        <div class="configuracion__contentIzq">
+            <ul>
+                <li>
+                    <a class="configuracion__links" href="{% url 'settings' %}">
+                        <div class="configuracion__linksSpace">
+                            <p>Datos personales</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="configuracion__links" href="{% url 'historial' %}">
+                        <div class="configuracion__linksSpace">
+                            <p>Mis compras</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="configuracion__links" href="{% url 'direcciones' %}">
+                        <div class="configuracion__linksSpace">
+                            <p>Direcciones</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="configuracion__links" href="{% url 'metodos_de_pago' %}">
+                        <div class="configuracion__linksSpace">
+                            <p>Mis medios de pago</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="configuracion__links" href="{% url 'cupones' %}">
+                        <div class="configuracion__linksSpace">
+                            <p>Mis cupones disponibles</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="configuracion__links" href="{% url 'logout' %}">
+                        <div class="configuracion__linksSpace">
+                            <p>Cerrar sesion</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% block contenido %}
+    {% endblock %}
+</div>
+<hr>
+{% endblock %}

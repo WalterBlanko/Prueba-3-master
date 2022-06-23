@@ -1,7 +1,7 @@
 - Responsive design (Smartphone, Tablet y PC)
 - Corregir carrito de compras
 - Mostrar stock real de los productos disponibles
-- Hacer menú de configuraciones de usuario, mostrar historial, despacho y seguimiento del mismo
+- Hacer despacho y seguimiento del mismo
 - Hacer página de pago
 - Permitir generar descuentos o promociones en la página principal (rol = adm) y hacer que estos descuentos sean validos al pagar
 - Hacer funcion de suscripción/dessuscripcion, realizar API en donde valide si el usuario está suscrito o no. 
