@@ -1,0 +1,20 @@
+- Responsive design (Smartphone, Tablet y PC)
+- Corregir carrito de compras
+- Mostrar stock real de los productos disponibles
+- Hacer menú de configuraciones de usuario, mostrar historial, despacho y seguimiento del mismo
+- Hacer página de pago
+- Permitir generar descuentos o promociones en la página principal (rol = adm) y hacer que estos descuentos sean validos al pagar
+- Hacer funcion de suscripción/dessuscripcion, realizar API en donde valide si el usuario está suscrito o no. 
+- Al estar suscrito se otorga un 5% de descuento al momento de pagar
+
+
+- ¿"Se deben crear mantenedores para la información relativa a clientes, usuarios, productos, 
+    promociones o descuentos"?
+- "El sistema debe considerar acceder a servicios Rest al momento de simular la suscripción con la 
+    fundación, se debe generar un servicio que permita registrar y eliminar las suscripciones (simulación)"
+- "El sistema debe considerar acceder a el servicio Rest de la fundación al momento de la venta para 
+    validar si el cliente este o no suscrito y aplicar el descuento al total de la venta."
+- "Se debe crear un servicio Rest que simulé pertenecer a la fundación y proporcioné tres servicios 
+    o Ingresar Suscriptores
+    o Eliminar Suscriptores
+    o Consultar vigencia de los suscriptores"

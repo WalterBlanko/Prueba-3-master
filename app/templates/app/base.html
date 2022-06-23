@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Tiendita</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    {% block css %}
+    <link rel="preload" href="{% static 'css/normalize2.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/normalize2.css' %}">
+    <link rel="preload" href="{% static 'css/stail.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/stail.css' %}">
+    <link rel="preload" href="{% static 'css/estilos2.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/estilos2.css' %}">
+    <link rel="preload" href="{% static 'css/estail.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/estail.css' %}">
+    {% endblock %}
+</head>
+<body class="gradient-custom">
+    <header id="header">
+        <img class="menu" id="menu" src="{% static 'img/menuiconwhite.png' %}" alt="menu">
+        <div class="contenedor_logo">
+            <img class="logo" src="{% static 'img/logo.png' %}" alt="logo">
+            <a href="{% url 'home' %}" style="color:black;"><h2 style="color:white;">Abstracta</h2></a>
+        </div>
+        <div>
+            <nav class="h5" id="nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}"> Inicio </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clima' %}"> Clima </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'catalogo' %}">Nuestros Productos!</a>
+                    </li>
+                    {% if perms.app.add_producto %}
+                    <li>
+                        <a href="{% url 'agregar_producto' %}">Agregar producto</a>
+                    </li>
+                    {% endif %}
+                    {% if perms.app.view_producto %}
+                    <li>
+                        <a href="{% url 'listar_productos' %}">Listado Productos</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}">Cerrar sesion</a>
+                    </li>
+                    <li>
+                        <a href="#">@{{ user.username}}</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">Iniciar Sesión</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'registro' %}">Registrarse</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{% url 'carrito' %}"><i class="bi bi-cart3"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="contenido">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <div class="icons footer__align">
+            <a class="icon icon__instagram" href="#">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a class="icon icon__twitter" href="#" >
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a class="icon icon__github" href="#" >
+                <i class="bi bi-github"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "tittle": "Felicitaciones",
+                "text": "{{m}}",
+                "icon": "success"
+            })
+        </script>
+    {% endfor %}
+    {% endif %}
+
+    {% block js %}
+        <script>
+            let menu = document.getElementById("menu")
+            let header = document.getElementById("header")
+            let nav = document.getElementById("nav")
+            menu.addEventListener("click", function () {
+                if (header.style.height == "60px" || header.offsetHeight == 60) {
+                    header.style.height = 60 + nav.offsetHeight + "px"
+                } else {
+                    header.style.height = "60px"
+                }
+            });
+
+            window.addEventListener("resize", function () {
+                let anchoVentana = document.documentElement.clientWidth
+                if (anchoVentana > 480) {
+                    header.style = "none"
+                }
+            });
+        </script>
+    {% endblock %}
+</body>
+</html>

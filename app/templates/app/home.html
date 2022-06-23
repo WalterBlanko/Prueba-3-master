@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="welcome">
+        <h2>Bienvenido!</h2>
+    </div>
+    <hr>
+    <section class="suscribirse">
+        <img src="{% static 'img/fondo.jpg' %}" alt="Foto">
+        <div class="suscribirse__letras">
+            <h2 class="suscribirse__mensaje">Suscribirse a "Oni-chan", una fundación sin fines de lucro. Al suscribirse obtendrá un descuento del 5% de forma permanente uwu</h2>
+        </div>
+        <button class="suscribirse__boton" href="#">Suscribirse</button>
+    </section>
+    <hr>
+{% endblock %}

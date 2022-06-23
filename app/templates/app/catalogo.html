@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+{% load humanize %}
+<br>
+<br>
+<br>
+<h2 class="h1">Productos de nuestra tienda!</h2>
+<div class="container productos mt-5">
+    {% for p in productos %}
+    <div class="producto d-flex justify-content-center">
+        <div class="card contenedor_producto border border-dark rounded-4" style=" background-color: rgb(122, 217, 200);">
+            {% if p.imagen %}
+            <img class="card-img-top" src="{{ p.imagen.url }}" style="width:100%; padding:1%;" alt="imagen producto" >
+            {% endif %}
+            <div class="card-body detalle" style="background-color: rgb(151, 237, 236);">
+                <h5>Categoria: {{ p.nombreCat | capfirst }}</h5>
+                <h2>{{ p.nombreProducto | title }}</h2>
+                <h5>Descripcion: {{ p.descripcionProducto | capfirst }}</h5>
+                <h3>Precio: ${{ p.precioProducto | intcomma }}</h3>
+                <button class="btn btn-success">Comprar</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

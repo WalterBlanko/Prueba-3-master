@@ -1,0 +1,87 @@
+{% extends 'app/base.html' %}
+{% block js %}
+<script>
+    function eliminarProducto(id) {
+        Swal.fire({
+            'title': '¿Estas seguro?',
+            'text': 'Esta acción no se puede deshacer',
+            'icon': 'question',
+            'showCancelButton': true,
+            'cancelButtonTest': 'No, cancelar',
+            'confirmButtonText': 'Si, eliminar',
+            'reverseButtons': true,
+            'confirmButtonColor': '#dc3545',
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "/eliminar-producto/" + id + "/"
+                }
+            });
+    }
+</script>
+{% endblock %}
+{% block content %}
+{% load humanize %}
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="card bg-dark text-white">
+        <div class="card-body ">
+            <h2>Listado de productos</h2>
+            <hr>
+        </div>
+        <table class="table table-dark table-striped table-hover table-responsive-sm fs-4">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Opciones</th>
+            </tr>
+            {% for p in entity %}
+            <tr>
+                <td>{{ p.nombreProducto | title }}</td>
+                <td>{{ p.descripcionProducto | title }}</td>
+                <td>{{ p.precioProducto | intcomma }}</td>
+                <td>{{ p.nombreCat | title }}</td>
+                <td>
+                    {% if perms.app.change_producto %}
+                    <a class="btn btn-info btn-sm" href="{% url 'modificar_producto' p.id %}">Modificar</a>
+                    {% endif %}
+                    {% if perms.app.delete_producto %}
+                    <a class="btn btn-danger btn-sm" href="#" onclick="eliminarProducto({{ p.id }})">Eliminar</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <div>
+            {% include 'app/paginator.html' %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+<script>
+    let menu = document.getElementById("menu")
+    let header = document.getElementById("header")
+    let nav = document.getElementById("nav")
+    menu.addEventListener("click", function () {
+        if (header.style.height == "60px" || header.offsetHeight == 60) {
+            header.style.height = 60 + nav.offsetHeight + "px"
+        } else {
+            header.style.height = "60px"
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        let anchoVentana = document.documentElement.clientWidth
+        if (anchoVentana > 480) {
+            header.style = "none"
+        }
+    });
+</script>
+{% endblock %}
